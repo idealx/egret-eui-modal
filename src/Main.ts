@@ -209,7 +209,7 @@ class Main extends eui.UILayer {
      * Click the button
      */
     private onModalButtonClick(e: egret.TouchEvent) {
-        let finishModal = new ConfirmModal({
+        let modal = new ConfirmModal({
             title: '提示',
             content: '这是一个模态弹窗',
             success: confirm => {
@@ -220,12 +220,12 @@ class Main extends eui.UILayer {
                 }
             }
         });
-        finishModal.showOnStage(this);
+        modal.showOnStage(this);
     }
     private onToastButtonClick(e: egret.TouchEvent) {
         let delay = 1500;
         let toast = new Toast({
-            text: `这是个Toast，${delay}ms后消失\n这是个Toast，${delay}ms后消失\n这是个Toast，${delay}ms后消失`,
+            text: `这是个Toast，${delay}ms后消失`,
             delay: delay,
             success: () => {
                 console.log('Toast消失了');
