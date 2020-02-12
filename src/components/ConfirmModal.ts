@@ -1,3 +1,13 @@
+// Modal 的选项
+interface ConfirmModalOptions {
+    title: string;
+    content: string;
+    showCancel?: boolean;
+    confirmText?: string;
+    cancelText?: string;
+    success?: (confirm: boolean) => void;
+}
+
 class ConfirmModal extends eui.Component {
     private maskBg: eui.Rect;
     private modalGroup: eui.Group;
@@ -8,13 +18,12 @@ class ConfirmModal extends eui.Component {
     cancelBtn: eui.Label;
 
     showStage: egret.DisplayObjectContainer;
-    options: any;
-    success?: (confirm: boolean) => void;
+    options: ConfirmModalOptions;
 
-    public constructor(obj?: any) {
+    public constructor(options?: ConfirmModalOptions) {
 		super();
         this.skinName = 'resource/components/ConfirmModal.exml';
-        this.options = obj;
+        this.options = options;
 
 		// 监听组件创建完毕 也就是场景的外观创建完毕
 		this.addEventListener(eui.UIEvent.CREATION_COMPLETE, this.onComplete, this);
@@ -39,6 +48,7 @@ class ConfirmModal extends eui.Component {
         let shp = new egret.Shape();
         shp.height = 80;
         shp.x = 0; shp.y = this.modalGroup.height - shp.height; shp.width = this.modalGroup.width; 
+        shp.graphics.clear();
         shp.graphics.lineStyle(1, 0xeeeeee);
         shp.graphics.moveTo(0, 0);
         shp.graphics.lineTo(shp.width, 0);
@@ -60,12 +70,12 @@ class ConfirmModal extends eui.Component {
         this.cancelBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.cancelButtonTapped, this);
         this.confirmBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.confirmButtonTapped, this);
 
+        // Load options
         this.title = this.options.title || '';
         this.content = this.options.content || '';
         this.showCancel = this.options.showCancel == undefined ? true: this.options.showCancel;
         this.confirmButtonText = this.options.confirmText || '确定';
         this.cancelButtonText = this.options.cancelText || '取消';
-        this.success = this.options.success;
     }
 
 	protected onAddedToStage() {
@@ -74,11 +84,11 @@ class ConfirmModal extends eui.Component {
 	}
 
     cancelButtonTapped() {
-        typeof this.success == "function" && this.success(false);
+        typeof this.options.success == "function" && this.options.success(false);
         this.closeModal();
     }
     confirmButtonTapped() {
-        typeof this.success == "function" && this.success(true);
+        typeof this.options.success == "function" && this.options.success(true);
         this.closeModal();
     }
 

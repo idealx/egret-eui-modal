@@ -1,12 +1,17 @@
+// Toast 选项
+interface ToastOptions {
+    text: string;
+    delay?: number;
+    success?: () => void;
+}
+
 class Toast extends eui.Rect {
     label = new eui.Label();
 
     private showStage: egret.DisplayObjectContainer;
-    options: any;
-    delay: number;
-    success?: () => void;
+    options: ToastOptions;
 
-    public constructor(obj?: any) {
+    public constructor(obj?: ToastOptions) {
 		super();
         this.options = obj;
 
@@ -17,6 +22,9 @@ class Toast extends eui.Rect {
     
     set toastText(text: string) {
         this.label.text = text;
+    }
+    get delay() {
+        return this.options.delay || 2000;
     }
 
     protected onComplete() {
@@ -33,8 +41,6 @@ class Toast extends eui.Rect {
         this.addChild(this.label);
 
         this.toastText = this.options.text || '';
-        this.delay = this.options.delay || 2000;
-        this.success = this.options.success;
     }
     protected labelResized() {
         this.width = this.label.width + 40;
@@ -56,7 +62,7 @@ class Toast extends eui.Rect {
         let tw = egret.Tween.get(this);
         tw.to({'alpha': 0}, 300).call(() => {
             this.showStage.removeChild(this);
-            typeof this.success == "function" && this.success();
+            typeof this.options.success == "function" && this.options.success();
         });
     }
 }
