@@ -19,7 +19,7 @@ Egret安装与部署参见[官方文档](http://developer.egret.com/cn/github/eg
 
 ### 代码示例
 
-```
+```typescript
 let modal = new ConfirmModal({
     title: '提示',
     content: '这是一个模态弹窗',
@@ -34,7 +34,7 @@ let modal = new ConfirmModal({
 modal.showOnStage(stage);
 ```
 
-```
+```typescript
 let delay = 1500;
 let toast = new Toast({
     text: `这是个Toast，${delay}ms后消失`,
