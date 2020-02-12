@@ -1,6 +1,10 @@
 # egret-eui-modal
 
-基于 Egret EUI 实现了类似微信小程序 wx.showModal 和 wx.showToast API 的效果，方便各位在快速开发原型时使用。
+基于 Egret EUI 实现了类似微信小程序 wx.showModal 和 wx.showToast API 的效果，方便在快速开发原型时使用。
+
+<div align="center">
+	<img src="https://raw.githubusercontent.com/idealx/egret-eui-modal/master/src/images/modal.jpg" height="300px" > <img src="https://raw.githubusercontent.com/idealx/egret-eui-modal/master/src/images/toast.jpg" height="300px" >
+</div>
 
 ## 使用指南
 
@@ -9,11 +13,9 @@ Egret安装与部署参见[官方文档](http://developer.egret.com/cn/github/eg
 ### 集成到已有的项目
 
 拷贝以下文件到已有项目：
-```
-src/components/ConfirmModal.ts
-src/components/Toast.ts
-resource/components/ConfirmModal.exml
-```
+* [src/components/ConfirmModal.ts](https://github.com/idealx/egret-eui-modal/blob/master/src/components/ConfirmModal.ts)
+* [src/components/Toast.ts](https://github.com/idealx/egret-eui-modal/blob/master/src/components/Toast.ts)
+* [resource/components/ConfirmModal.exml](https://github.com/idealx/egret-eui-modal/blob/master/resource/components/ConfirmModal.exml)
 
 ### 代码示例
 
@@ -44,4 +46,4 @@ let toast = new Toast({
 toast.showOnStage(stage);
 ```
 
-更多参见 Main.ts 以及以上文件的相关源码。
+更多参见 [Main.ts](https://github.com/idealx/egret-eui-modal/blob/master/src/Main.ts) 以及以上文件的相关源码。
