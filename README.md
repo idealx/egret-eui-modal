@@ -19,6 +19,7 @@ Egret安装与部署参见[官方文档](http://developer.egret.com/cn/github/eg
 
 ### 代码示例
 
+弹出 Modal
 ```typescript
 let modal = new ConfirmModal({
     title: '提示',
@@ -34,6 +35,7 @@ let modal = new ConfirmModal({
 modal.showOnStage(stage);
 ```
 
+弹出 Toast
 ```typescript
 let delay = 1500;
 let toast = new Toast({
