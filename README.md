@@ -3,7 +3,7 @@
 基于 Egret EUI 实现了类似微信小程序 wx.showModal 和 wx.showToast API 的效果，方便在快速开发原型时使用。
 
 <div align="center">
-	<img src="https://raw.githubusercontent.com/idealx/egret-eui-modal/master/src/images/modal.jpg" height="300px" > <img src="https://raw.githubusercontent.com/idealx/egret-eui-modal/master/src/images/toast.jpg" height="300px" >
+	<img src="https://raw.githubusercontent.com/idealx/egret-eui-modal/master/src/images/modal.jpg" height="400px" > <img src="https://raw.githubusercontent.com/idealx/egret-eui-modal/master/src/images/toast.jpg" height="400px" >
 </div>
 
 ## 使用指南
